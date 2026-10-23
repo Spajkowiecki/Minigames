@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta property="og:title" content="Zgadnij liczbę">
+    <meta property="og:description" content="Prosta gra w zgadywanie liczby.">
+    <meta name="description" content="Prosta gra w zgadywanie liczby od 1 do 100, napisana w czystym JavaScript.">
+
+    <link rel="stylesheet" href="../css/guessNumber.css">
+
+    <link rel="icon" href="../number-blocks.png" type="image/svg+xml">
+
+    <title>Zgadnij Liczbę</title>
+</head>
+
+<body>
+    <header class="header">
+        <nav class="header__nav nav">
+            <ul class="nav__list">
+                <li class="nav__list-item"><a class="nav__link" href="index.html">Powrót do menu</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="game">
+        <h2 class="game__title">Wylosowałem liczbę, zgadnij jaką z zakresu(1 - 100)</h2>
+        <form class="game__form form" id="guessNumber-form">
+            <label class="form__label" for="number">Podaj liczbę</label>
+            <input class="form__input" type="text" name="number">
+            <button class="form__button" type="submit">Sprwadź</button>
+        </form>
+        <ol class="game__answersList">
+
+        </ol>
+    </div>
+    <dialog class="modal">
+        <div class="modal__upper">
+            <h2 class="upper__title">Chcesz zagrać w grę ?</h2>
+            <p class="upper__subtitle">"Zgadnij jaki wymyśliłem sobie numer"</p>
+        </div>
+        <div class="modal__bottom">
+            <button type="button">Start</button>
+        </div>
+    </dialog>
+    <script src="../scripts/guessNumber.js"></script>
+</body>
+
+</html>
