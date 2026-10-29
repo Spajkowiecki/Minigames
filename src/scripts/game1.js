@@ -15,6 +15,11 @@
 const gameControl = document.querySelector("#game-control");
 const computerChoice = document.querySelector("#computer-choice");
 
+const computerPoints = document.querySelector("#points-computer");
+const playerPoints = document.querySelector("#points-player");
+const result = document.querySelector("#points-result");
+const gameHistory = document.querySelector("#game-history");
+
 const imagesURL = "../../src/";
 
 const symbols = ["PAPIER", "KAMIEŃ", "NOŻYCE"];
@@ -93,6 +98,36 @@ function computerSymbol() {
   return symbol[randomSymbolIndex];
 }
 
+function changePoints(player, computer, gameResult) {
+  result.textContent = gameResult;
+  playerPoints.textContent = player;
+  computerPoints.textContent = computer;
+}
+
+function createHistoryElement(round) {
+  const liElement = document.createElement("li");
+  const img = document.createElement("img");
+  const img2 = document.createElement("img");
+  const span = document.createElement("span");
+  const span2 = document.createElement("span");
+
+  span.textContent = "PLAYER: ";
+  span2.textContent = "COMPUTER: ";
+
+  img.setAttribute("src", `../${round.player}.png`);
+  img2.setAttribute("src", `../${round.computer}.png`);
+
+  //player choose
+  liElement.append(span);
+  liElement.append(img);
+  //computer choose
+  liElement.append(span2);
+  liElement.append(img2);
+
+  //adding li to ol
+  gameHistory.append(liElement);
+}
+
 // ----------- LISTENER FOR SOURCE FROM BUTTON WHICH ONE WAS CLICKED
 gameControl.addEventListener("click", (btnEvent) => {
   btnEvent.preventDefault();
@@ -125,9 +160,13 @@ gameControl.addEventListener("click", (btnEvent) => {
   };
 
   inGameData.roundNumber += 1;
-  console.log(`RUNDA: ${inGameData.roundNumber}: `, inGameData.points);
+  //console.log(`RUNDA: ${inGameData.roundNumber}: `, inGameData.points);
+  console.log(`GAME HISTORY inGameData:`, inGameData.gameHistory);
 
   inGameData.gameHistory.push(round);
+
+  changePoints(inGameData.points.player, inGameData.points.computer, winner);
+  createHistoryElement(round);
   // PO KAŻDYM KLIKNIECIU, zapisuje wynik w obiekcie i wysyłam do tablicy obiektow
 
   //ZAKONCZENIE GRY

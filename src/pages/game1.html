@@ -18,15 +18,28 @@
     </header>
 
     <main class="game">
-        <div class="game__computer">
-            <img id="computer-choice" src="../paper.png" alt="computer_choice">
+        <div class="game__container">
+            <div class="game__computer">
+                <img id="computer-choice" src="../paper.png" alt="computer_choice">
+            </div>
+            <div class="game__control" id="game-control">
+                <button class="control__button control__button--rock" data-symbol="rock" aria-label="rock"></button>
+                <button class="control__button control__button--scissor" data-symbol="scissor"
+                    aria-label="scissor"></button>
+                <button class="control__button control__button--paper" data-symbol="paper" aria-label="paper"></button>
+            </div>
         </div>
-        <div class="game__control" id="game-control">
-            <button class="control__button control__button--rock" data-symbol="rock" aria-label="rock"></button>
-            <button class="control__button control__button--scissor" data-symbol="scissor"
-                aria-label="scissor"></button>
-            <button class="control__button control__button--paper" data-symbol="paper" aria-label="paper"></button>
+        <div class="game__points">
+            <span class="points__player" id="points-player">0</span> <span id="points-result"></span> <span
+                class="points__computer" id="points-computer">0</span>
         </div>
+        <div class="game__data">
+            <h2>HISTORY:</h2>
+            <ol class="game__history" id="game-history">
+
+            </ol>
+        </div>
+
     </main>
     <script src="../scripts/game1.js"></script>
 </body>
