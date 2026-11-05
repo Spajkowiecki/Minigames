@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/game2.css">
+    <title>Clicker</title>
+</head>
+
+<body>
+    <div class="game">
+        <div class="game__column game__column--left">
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a class="nav__link">HUTA</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="game__column game__column--center">
+            <div class="clicker__view">
+                <div class="clicker__hpBar" id="clicker-hpBar">
+                    <span class="clicker__hpValue" id="clicker-hpValue">0</span>
+
+                </div>
+                <img class="clicker__view--img" id="clicker-image" src="../pages/assets2/iron_ore.png" alt="iron_ore">
+            </div>
+            <div class="clicker__control" id="clicker-control">
+                <button class="clicker__control--btn" data-control="start">ROZPOCZNIJ GRĘ</button>
+                <button class="clicker__control--btn" data-control="click">PRZESIEWAJ</button>
+                <button class="clicker__control--btn" data-control="load">ZAŁADUJ</button>
+            </div>
+            <div class="clicker__score">
+                PUNKTY | STATYSTYKI
+            </div>
+        </div>
+        <div class="game__column game__column--right"></div>
+    </div>
+
+    <script src="../scripts/game2.js"></script>
+</body>
+
+</html>

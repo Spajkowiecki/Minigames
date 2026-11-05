@@ -1,0 +1,102 @@
+:root {
+  --bg-color: #343a40;
+  --bg-color-alt: #212529;
+  --sections-bg: #6c757d;
+
+  --text-color: #dee2e6;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  text-decoration: none;
+  list-style: none;
+}
+
+body {
+  background-color: var(--bg-color-alt);
+  color: var(--text-color);
+  padding: 20px 20px 20px 20px;
+  overflow-y: hidden;
+}
+
+.game {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.game > div {
+  background-color: var(--bg-color);
+  border: 2px dashed rgba(255, 255, 255, 0.45);
+  border-radius: 10px;
+  padding: 10px;
+  height: 96vh;
+}
+
+.game__column--center {
+  flex: 3;
+
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.game__column--center > div {
+  border: 1px solid rgb(104, 104, 104);
+  padding: 10px;
+}
+
+.clicker__view {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+.clicker__control {
+  display: flex;
+  gap: 10px;
+  flex: 0.5;
+}
+.clicker__score {
+  flex: 2;
+}
+
+.game__column--left {
+  flex: 1;
+}
+.game__column--right {
+  flex: 1;
+}
+
+.clicker__hpBar {
+  align-self: start;
+
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  background-color: rgb(255, 58, 58);
+  width: 100%;
+  height: 30px;
+  border: 1px solid rgb(255, 255, 255);
+}
+
+.clicker__hpValue {
+  padding-left: 30px;
+  align-self: center;
+  color: white;
+  font-weight: 700;
+}
+
+.clicker__control--btn {
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  color: white;
+  font-weight: 700;
+  background-color: var(--sections-bg);
+}
