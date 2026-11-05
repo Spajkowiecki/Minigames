@@ -1,7 +1,10 @@
 const clickerImage = document.querySelector("#clicker-image");
 const gameControl = document.querySelector("#clicker-control");
 
-const clickerHpBar = document.querySelector("#clicker-hpBar");
+const clicks = document.querySelector("#scoreboard-clicks");
+const points = document.querySelector("#scoreboard-points");
+
+const clickerHpBar = document.querySelector("#clicker-actualhp");
 const clickerHP = document.querySelector("#clicker-hpValue");
 
 const DEBUG = false;
@@ -10,14 +13,14 @@ const gameState = {
   state: "IDLE",
 };
 
-const gameSettings = {
+const gameStatistics = {
   points: 0,
+  clicks: 0,
 };
 
 const mineralData = {
+  maxhp: 0,
   hp: 0,
-  hardeness: 1,
-  dropOreRata: 1.5,
 };
 
 function cutTheImage(imageDOM) {
@@ -72,6 +75,7 @@ function initGame() {
     return;
   }
 
+  clickerHpBar.style.display = "none";
   clickbtn.style.display = "none";
   loadbtn.style.display = "none";
 }
@@ -93,15 +97,50 @@ function startGame() {
   }
 
   startbtn.style.display = "none";
-
+  clickerHpBar.style.display = "flex";
   clickbtn.style.display = "block";
   loadbtn.style.display = "block";
 
   spawnNewRock();
 }
 
+function setRock() {
+  const rock = mineralData;
+  clickerHpBar.style.width = "100%";
+  rock.hp = 10;
+  rock.maxhp = rock.hp;
+  return rock;
+}
+
 function spawnNewRock() {
   console.log("CREATING NEW ROCK!");
+  //ustawienia dot. aktualnego niszczonego obiektu.
+
+  const baseImageURL = "../pages/assets2/";
+  const imageNumber = Math.floor(Math.random() * 2) + 1;
+  const randomImage = `${baseImageURL}iron_ore${imageNumber}.png`;
+
+  console.log("IMAGE: ", randomImage);
+
+  clickerImage.setAttribute("src", randomImage);
+  const rock = setRock();
+  clickerHP.textContent = rock.hp;
+}
+
+function performActionOnClick() {
+  //Po kliknieciu odejmuje HP
+  mineralData.hp -= 1;
+  gameStatistics.clicks += 1;
+  //wykonuje obliczenia zamiany na procenty by wykorzystac to do zmniejszenia paska
+  const takeHpMath = (mineralData.hp / mineralData.maxhp) * 100;
+
+  //ustawienie wartosci width paska zycia
+  clickerHpBar.style.width = takeHpMath + "%";
+  //ustawienie wartosci tekstowej dla hp
+  clickerHP.textContent = mineralData.hp;
+  clicks.textContent = gameStatistics.clicks;
+
+  console.log(takeHpMath);
 }
 
 //? ------------------ [ GAME ] --------------------------------------//
@@ -128,11 +167,18 @@ gameControl.addEventListener("click", (clickEvent) => {
   if (gameState.state === "RUNNING") {
     if (pressedAction === "click") {
       console.log("CLICK!");
+      //Funkcja
+      performActionOnClick();
+
+      if (mineralData.hp === 0) {
+        console.log("ZNISZCZONE!");
+        gameStatistics.points += 1;
+        points.textContent = gameStatistics.points;
+        spawnNewRock();
+      }
     }
     if (pressedAction === "load") {
       console.log("LOAD!");
     }
   }
 });
-
-cutTheImage(clickerImage);

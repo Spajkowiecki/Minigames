@@ -75,6 +75,15 @@ body {
 
 .clicker__hpBar {
   align-self: start;
+  width: 100%;
+  background-color: rgb(153, 3, 3);
+  display: flex;
+  align-items: start;
+  justify-content: start;
+}
+
+.clicker__actualhp {
+  align-self: start;
 
   display: flex;
   align-items: start;
@@ -82,7 +91,6 @@ body {
   background-color: rgb(255, 58, 58);
   width: 100%;
   height: 30px;
-  border: 1px solid rgb(255, 255, 255);
 }
 
 .clicker__hpValue {
@@ -99,4 +107,22 @@ body {
   color: white;
   font-weight: 700;
   background-color: var(--sections-bg);
+}
+
+.scoreboard {
+  display: flex;
+  width: 100%;
+
+  gap: 10px;
+}
+
+.scoreboard__info {
+  padding: 10px;
+  background-color: var(--bg-color-alt);
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  width: 100%;
+  height: 50px;
+  border: 1px solid rgb(105, 105, 105);
 }

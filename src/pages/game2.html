@@ -20,10 +20,12 @@
         <div class="game__column game__column--center">
             <div class="clicker__view">
                 <div class="clicker__hpBar" id="clicker-hpBar">
-                    <span class="clicker__hpValue" id="clicker-hpValue">0</span>
+                    <div class="clicker__actualhp" id="clicker-actualhp">
+                        <span class="clicker__hpValue" id="clicker-hpValue">0</span>
+                    </div>
 
                 </div>
-                <img class="clicker__view--img" id="clicker-image" src="../pages/assets2/iron_ore.png" alt="iron_ore">
+                <img class="clicker__view--img" id="clicker-image" src="../pages/assets2/mine.png" alt="iron_ore">
             </div>
             <div class="clicker__control" id="clicker-control">
                 <button class="clicker__control--btn" data-control="start">ROZPOCZNIJ GRĘ</button>
@@ -34,7 +36,12 @@
                 PUNKTY | STATYSTYKI
             </div>
         </div>
-        <div class="game__column game__column--right"></div>
+        <div class="game__column game__column--right">
+            <div class="scoreboard" id="scoreboard">
+                <span class="scoreboard__info" id="scoreboard-clicks">0</span><span class="scoreboard__info"
+                    id="scoreboard-points">0</span>
+            </div>
+        </div>
     </div>
 
     <script src="../scripts/game2.js"></script>
